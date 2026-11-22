@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added `.github/prompts/strict-pipeline.prompt.md` prompt file for executable Copilot Agent workflows.
   - Added `.github/instructions/git-safety.instructions.md` modular instruction applying Git safety across all workspaces.
   - Added `AGENT.md` & `AGENTS.md` universal protocol files for GitHub Copilot, Claude, Cursor, and Windsurf agent alignment.
+- Added copy-pasteable Automated Installation Prompts in `README.md` for AI agents to auto-configure the pipeline globally or per-project.
+- Sanitized documentation paths to ensure zero machine-specific path leakages.
 - Formal feature specification document `v1.2.0-mandatory-feature-branching.md`.
 
 ### Changed
