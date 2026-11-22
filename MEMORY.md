@@ -23,6 +23,7 @@ This file preserves architectural patterns, gotchas, framework quirks, and team 
 - Documentation specs follow: `[REF-ID]-[feature-name].md` or `[vVersion]-[feature-name].md`.
 - Versions are tracked via SemVer in manifest (`package.json`) and synced to `CHANGELOG.md`.
 - Remote repository URL: `https://github.com/abhishek4official/CodingAgent.git`.
+- Featured in Portfolio / Resume: `https://github.com/abhishek4official/abhishek4official.github.io` (live at `https://abhishek4official.github.io/`).
 
 ---
 
