@@ -23,9 +23,10 @@
 2. **GATE 2 (STOP):** Ask: *"Do you approve this implementation plan and documentation strategy?"*
 
 ### Phase 3: Implementation & Verification
-1. Adhere strictly to the approved plan. If unexpected blockers occur, halt and return to Phase 2.
-2. Run linters and tests with non-interactive flags (`--yes`, `--no-pager`, `--ci`).
-3. **Circuit Breaker:** If tests or checks fail after **3 attempts**, STOP, report failures, and await user direction.
+1. For Git repositories, ensure working on a feature branch (`feat/<name>`); check out one if on `main`/`master`.
+2. Adhere strictly to the approved plan. If unexpected blockers occur, halt and return to Phase 2.
+3. Run linters and tests with non-interactive flags (`--yes`, `--no-pager`, `--ci`).
+4. **Circuit Breaker:** If tests or checks fail after **3 attempts**, STOP, report failures, and await user direction.
 
 ### Phase 4: Diff Review & Iteration
 1. Present diff summary, docs updated, and test pass/fail results.
@@ -34,5 +35,5 @@
 ### Phase 5: Memory Retention & Safe Git Commit
 1. Append any new architectural insights or quirks into `MEMORY.md`.
 2. Inspect `git status`. Verify no secrets, credentials, or `.env` files are staged.
-3. If on a protected branch (`main`/`master`), ask before committing.
+3. **Mandatory Feature Branch:** Always commit into a feature branch (`feat/<name>`). Never commit directly to `main`/`master` unless user specifically and explicitly commands a deviation.
 4. Create a conventional commit referencing version (e.g., `feat(v1.2.0): ...`). Never push to remote without explicit request.

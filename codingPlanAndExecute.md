@@ -42,7 +42,10 @@ Do not create, edit files, or install dependencies until approved.
 ---
 
 ## Phase 3: Implementation, Documentation & Verification
-1. **Code Implementation:** Implement changes strictly adhering to the approved plan.
+1. **Branch Verification & Code Implementation:**
+   - If working within a Git repository, check the current branch (`git branch --show-current`).
+   - If on `main`, `master`, or base branch, **create and switch to a dedicated feature branch** (`git checkout -b feat/<feature-name>`). All changes and commits must stay on the feature branch. You can **ONLY deviate if the user specifically and explicitly asks to work/commit directly on `main`**.
+   - Implement changes strictly adhering to the approved plan.
    - If you hit an unexpected blocker that requires deviating from the approved plan, **STOP and return to Phase 2**.
 2. **Version Bump & Documentation Sync:**
    - Bump the project version in manifest and lock files.
@@ -76,9 +79,9 @@ Do not stage or commit until explicitly approved.
    - Record any new architectural discoveries, gotchas, framework quirks, or user preferences into `MEMORY.md` so context is preserved across future sessions.
 2. **Pre-Staging Safety Check:**
    - Check `git branch --show-current`, `git status`, and `git diff --stat`.
+   - **Mandatory Feature Branch:** In all Git projects, verify active branch is a feature branch. Committing directly to `main`/`master` is strictly prohibited. If still on `main`/`master`, create and switch to a feature branch before staging. You can **ONLY deviate if the user specifically and explicitly asks to commit to `main`**.
    - Ensure only intentional files (code, tests, docs, version manifests, memory) are staged; leave pre-existing unrelated modified files untouched.
    - Verify no secrets, `.env` files, credentials, or temporary debug artifacts are included.
-   - If currently on a protected branch (e.g., `main`/`master`), **STOP and ask whether to commit directly or create a new branch first**.
 3. **Commit Execution:**
    - Verify local author info (`git config user.name`, `git config user.email`). Do NOT inject AI attributions or custom trailers unless requested.
    - Stage changes and craft a conventional commit message referencing the new version (e.g., `feat(v1.3.0): add JWT auth and update docs`).

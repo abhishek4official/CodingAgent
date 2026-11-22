@@ -34,5 +34,6 @@ When handling non-trivial coding tasks, follow this structured, gated workflow:
 
 ### 5. Memory & Git Boundaries
 - Record lasting architectural gotchas in `MEMORY.md`.
+- **Mandatory Feature Branch:** In all Git projects, always create and commit into a dedicated feature branch (`feat/<name>`). Never commit directly to `main`/`master` unless user specifically and explicitly commands a deviation.
 - Ensure no secrets, `.env` files, or unintended files are staged.
 - Never execute `git push` unless explicitly commanded.
