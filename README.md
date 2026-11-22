@@ -2,13 +2,28 @@
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-CodingAgent-blue?logo=github)](https://github.com/abhishek4official/CodingAgent)
 [![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](package.json)
+[![Architecture Guide](https://img.shields.io/badge/Architecture_Guide-abhishek4official.github.io%2Fai--agents-0ea5e9?style=flat-square&logo=googlechrome&logoColor=white)](https://abhishek4official.github.io/ai-agents/)
+[![llms.txt](https://img.shields.io/badge/llms.txt-Documented-emerald?style=flat-square)](https://abhishek4official.github.io/llms.txt)
 
 A universal, deterministic 5-phase software development pipeline with safety gates, test circuit-breakers, version synchronization, and long-term memory for AI coding agents (**Antigravity**, **Claude Code**, **GitHub Copilot**, **Cursor**, and **Windsurf**).
 
 ---
 
+## 📖 Architecture & Design Documentation
+For an in-depth technical breakdown of the 5-phase deterministic engineering protocol, automated test circuit breakers, and cross-harness parity across Antigravity, Claude Code, Cursor, Copilot, and Windsurf, visit the official architecture hub:
+
+👉 **[https://abhishek4official.github.io/ai-agents/](https://abhishek4official.github.io/ai-agents/)**
+
+### Related AI Architecture Hubs
+* **[Model Context Protocol (MCP) Developer Guide](https://abhishek4official.github.io/mcp/)** — Open standard for connecting AI agents to external tools, databases, and prompts.
+* **[Agent Frameworks Evaluation](https://abhishek4official.github.io/agent-frameworks/)** — Comparing Microsoft Agent Framework (Semantic Kernel + AutoGen) vs LangGraph vs DAG orchestrators.
+* **[Local AI & Private Systems](https://abhishek4official.github.io/local-ai/)** — Running local multi-agent systems via Ollama without cloud subscriptions.
+
+---
+
 ## Repository
 - **Official GitHub Repository:** [https://github.com/abhishek4official/CodingAgent](https://github.com/abhishek4official/CodingAgent)
+- **Live Architecture & Portfolio:** [https://abhishek4official.github.io/](https://abhishek4official.github.io/)
 
 ---
 
