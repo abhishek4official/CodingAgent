@@ -62,8 +62,8 @@ npm install -g @anthropic-ai/claude-code
 #### **Authentication & Launch**
 Navigate to this repository root and launch Claude:
 
-```powershell
-cd c:\Users\abhis\Documents\CodeingAgentAndPypeline
+```bash
+cd path/to/CodingAgent
 claude
 ```
 - On first launch, follow the browser login prompt to authenticate with Anthropic.
@@ -144,6 +144,40 @@ You can prefix your prompts to adjust the strictness of the gates:
 | *(None / Default)* | Strictly stops at Gate 1, Gate 2, and Gate 3. | Features, refactors, architectural tasks. |
 | `[quick] <prompt>` | Merges Phase 1 & 2 into a single confirmation. | Typos, 1-line fixes, small config adjustments. |
 | `[auto] <prompt>` | Runs Phases 1–3 autonomously; stops only at Gate 3 (Diff review). | Fast prototyping when you only want to review final diffs before commit. |
+
+---
+
+## Automated Installation Prompts (For AI Agents)
+
+You can copy and paste the meta-prompts below directly into **any AI coding assistant** (Google Antigravity, Claude Code, GitHub Copilot, Cursor, Windsurf, or Aider) to have the agent autonomously install and configure this pipeline for you:
+
+### 1. Project-Specific Installation (Single Repository)
+Use this prompt inside an existing or new project to have your agent pull and configure the full pipeline:
+
+```text
+Please install and configure the 5-phase strict agentic coding pipeline from https://github.com/abhishek4official/CodingAgent.git into this current project:
+1. Detect and configure rules for all coding agents supported in this workspace:
+   - Google Antigravity: .gemini/rules.md
+   - Claude Code: .claude/CLAUDE.md & .claude/settings.json
+   - Cursor: .cursorrules & .cursor/rules/strict-pipeline.mdc
+   - GitHub Copilot: .github/copilot-instructions.md, .github/instructions/git-safety.instructions.md, .github/prompts/strict-pipeline.prompt.md, and .github/agents/pipeline.agent.md
+   - Windsurf: .windsurfrules
+2. Copy root AGENTS.md, AGENT.md, and canonical codingPlanAndExecute.md.
+3. Initialize MEMORY.md if it doesn't already exist.
+4. Enforce the Mandatory Feature Branch Policy: ensure agents always create a feature branch (feat/<name>) for any work and never commit directly to main/master unless explicitly requested.
+```
+
+### 2. Global Machine-Level Installation (All Workspaces)
+Use this prompt to instruct your agent to configure the pipeline globally across your entire development environment:
+
+```text
+Please configure the strict 5-phase agentic coding pipeline from https://github.com/abhishek4official/CodingAgent.git globally on this machine:
+1. Claude Code: Set up the global pipeline instructions in ~/.claude/CLAUDE.md.
+2. Google Antigravity: Install the pipeline as a global custom rule or plugin in ~/.gemini/.
+3. GitHub Copilot: Configure global chat custom instructions in user-level VS Code settings.
+4. Cursor / Windsurf: Add the 5-phase pipeline to global user rules.
+5. Guarantee that the Mandatory Feature Branching Policy (always creating feat/<name> and never committing directly to main/master) is activated across all projects.
+```
 
 ---
 
