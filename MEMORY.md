@@ -7,6 +7,7 @@ This file preserves architectural patterns, gotchas, framework quirks, and team 
 ## 1. Architecture Patterns & Design Decisions
 <!-- Record key architectural designs, patterns, and structure choices here. -->
 - Cursor dual-rule strategy: Modern `.cursor/rules/*.mdc` (supporting `globs: *` and `alwaysApply: true`) paired with root `.cursorrules` for complete backwards compatibility.
+- GitHub Copilot multi-tier structure: Repository instructions (`.github/copilot-instructions.md`), path instructions (`.github/instructions/*.instructions.md`), prompt templates (`.github/prompts/*.prompt.md`), custom agent specialist profiles (`.github/agents/*.agent.md`), and universal root manifests (`AGENTS.md`, `AGENT.md`).
 - Canonical pipeline rules are standardized in `codingPlanAndExecute.md` and projected across Antigravity, Claude Code, GitHub Copilot, Cursor, and Windsurf.
 
 ---
@@ -30,4 +31,5 @@ This file preserves architectural patterns, gotchas, framework quirks, and team 
 ## 4. User & Workflow Preferences
 <!-- Record explicit developer preferences, CLI tool choices, or style mandates. -->
 - Strict 5-Phase gated workflow enforced for non-trivial features.
+- Mandatory Feature Branch Policy: Always create and commit to a feature branch (`feat/<name>`) for any Git project where working; never commit directly to `main`/`master` unless explicitly commanded by the user.
 - Never push to git remote without explicit user command.

@@ -39,6 +39,7 @@ Follow this 5-phase engineering protocol for non-trivial development tasks.
 ---
 
 ## Phase 3: Implementation, Documentation & Verification
+- If working within a Git repository, check `git branch --show-current`. If on `main`/`master`, create and checkout a feature branch (`feat/<name>`). Always commit to feature branch; only deviate if user specifically requests.
 - Follow approved plan strictly. If an architectural deviation is needed, stop and return to Phase 2.
 - Bump project version in manifests/lockfiles and update `CHANGELOG.md`.
 - Run tests and linters using non-interactive flags (`--yes`, `--no-pager`, `--ci`).
@@ -57,6 +58,6 @@ Follow this 5-phase engineering protocol for non-trivial development tasks.
 ## Phase 5: Memory Retention & Safe Git Commit
 - Update `MEMORY.md` with new architectural discoveries or gotchas.
 - Check `git status` and `git branch --show-current`. Ensure no secrets or `.env` files are included.
-- If on `main`/`master`, confirm whether to commit directly or create a branch.
+- **Mandatory Feature Branch:** Always commit into a feature branch (`feat/<name>`). Never commit directly to `main`/`master` unless the user specifically and explicitly commands a deviation.
 - Stage intentional files and commit using Conventional Commits (e.g. `feat(v1.2.0): ...`).
 - **NEVER** run `git push` unless explicitly requested by the user.

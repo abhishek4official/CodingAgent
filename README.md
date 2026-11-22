@@ -1,7 +1,7 @@
 # Strict Agentic Coding Pipeline & Multi-Agent Setup
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-CodingAgent-blue?logo=github)](https://github.com/abhishek4official/CodingAgent)
-[![Version](https://img.shields.io/badge/version-1.1.0-green.svg)](package.json)
+[![Version](https://img.shields.io/badge/version-1.2.0-green.svg)](package.json)
 
 A universal, deterministic 5-phase software development pipeline with safety gates, test circuit-breakers, version synchronization, and long-term memory for AI coding agents (**Antigravity**, **Claude Code**, **GitHub Copilot**, **Cursor**, and **Windsurf**).
 
@@ -25,10 +25,18 @@ A universal, deterministic 5-phase software development pipeline with safety gat
 ├── .gemini/
 │   └── rules.md                     # Antigravity workspace rules
 ├── .github/
-│   └── copilot-instructions.md      # GitHub Copilot workspace instructions
+│   ├── agents/                      # Custom Copilot agent profiles
+│   │   └── pipeline.agent.md        # @pipeline custom agent specialist
+│   ├── copilot-instructions.md      # GitHub Copilot workspace instructions
+│   ├── instructions/                # Modular path-specific instructions
+│   │   └── git-safety.instructions.md
+│   └── prompts/                     # Executable prompt templates for Copilot
+│       └── strict-pipeline.prompt.md
 ├── .cursorrules                     # Cursor AI IDE configuration (legacy fallback)
 ├── .gitignore                       # Safeguard against secrets & temp files
 ├── .windsurfrules                   # Windsurf IDE Cascade configuration
+├── AGENT.md                         # Universal agent protocol (singular alias)
+├── AGENTS.md                        # Universal agent persona and pipeline protocol
 ├── CHANGELOG.md                     # Project release changelog & version history
 ├── MEMORY.md                        # Persistent cross-session project memory
 ├── package.json                     # Metadata manifest & SemVer version tracker
@@ -77,13 +85,17 @@ Antigravity auto-discovers workspace rules in `.gemini/rules.md`.
 
 ### 3. GitHub Copilot
 
-GitHub Copilot Chat automatically detects workspace instructions placed inside `.github/`.
+GitHub Copilot Agent supports a multi-tiered architecture for instructions, prompt templates, and path-specific rules:
 
 #### **Setup**
-1. Install the **GitHub Copilot** and **GitHub Copilot Chat** extensions in VS Code or your JetBrains IDE.
-2. Sign in to your GitHub account.
-3. Open this folder in VS Code.
-4. GitHub Copilot Chat automatically loads instructions from [`.github/copilot-instructions.md`](.github/copilot-instructions.md).
+1. Install the **GitHub Copilot** and **GitHub Copilot Chat** extensions in VS Code or JetBrains.
+2. Sign in to your GitHub account and open this folder.
+3. Copilot automatically loads:
+   - **Custom Specialist Agent:** [`.github/agents/pipeline.agent.md`](.github/agents/pipeline.agent.md) (`@pipeline` in chat)
+   - **Workspace Instructions:** [`.github/copilot-instructions.md`](.github/copilot-instructions.md)
+   - **Path Instructions:** [`.github/instructions/git-safety.instructions.md`](.github/instructions/git-safety.instructions.md)
+   - **Prompt Template:** Select or invoke prompt templates from [`.github/prompts/strict-pipeline.prompt.md`](.github/prompts/strict-pipeline.prompt.md)
+   - **Universal Agent Manifest:** [`AGENTS.md`](AGENTS.md) / [`AGENT.md`](AGENT.md) at root
 
 ---
 
@@ -143,5 +155,6 @@ You can prefix your prompts to adjust the strictness of the gates:
 2. **Project Memory (`MEMORY.md`):**
    - The agent inspects [`MEMORY.md`](MEMORY.md) during Phase 1 to remember past quirks and preferences.
    - The agent appends newly discovered patterns and gotchas during Phase 5.
-3. **Git Boundary:**
-   - The agent will never execute `git push` to remote repositories unless explicitly commanded by you.
+3. **Git Branch & Commit Safety:**
+   - **Mandatory Feature Branch:** For all Git projects, agents automatically create and switch to a dedicated feature branch (`feat/<name>`) and commit to it. Committing directly to `main`/`master` is forbidden unless the user specifically and explicitly commands a deviation.
+   - **No Auto-Push:** The agent will never execute `git push` to remote repositories unless explicitly commanded by you.
